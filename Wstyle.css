@@ -1,0 +1,143 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.style1{
+    display: flex; /* 使用弹性布局 */
+    align-items: center; /* 垂直居中对齐子元素 */
+    justify-content: center; /* 水平居中对齐子元素 */
+    flex-direction: column; /* 子元素排列为纵向 */
+    height: 80vh; /* 设置高度为视口高度的100% */
+    overflow: auto; /* 如果内容溢出，则滚动 */
+}
+
+.ath{
+    display: flex; /* 使用弹性布局 */
+    height: 80vh; /* 设置高度为视口高度的100% */
+    overflow: auto; /* 如果内容溢出，则滚动 */
+
+}
+.ath img{
+    width:50%;
+    height:80vh;
+}
+.info{
+    width:50%;
+    background-color: white;
+    display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   }
+.info h2{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.info p{
+    text-align: center;
+    line-height: 2em;
+}
+.achievement{
+    display: flex;
+    background-color:#ede9db;   
+    justify-content: space-between;
+    align-items: center;
+    padding: 100px 280px 80px;
+}
+.achievement div{
+width:300px;
+text-align: center;
+}
+.achievement img{
+width:100%;
+height:30vh;
+border-radius: 10px;
+}
+.achievement h3{
+    font-size: 20px;
+    margin: 20px;
+}
+.achievement p{
+    font-size: 14px;
+    line-height: 1.6em;
+}
+header,section,footer{
+    border:5px;
+
+}
+
+header{
+    background-color:rgba(35,28,26,0.8);
+    width:100%;
+    position:fixed;
+    height: 80px;
+    right:5px; 
+    margin: 0px;
+    z-index: 1000;
+}
+
+header a{
+    color:white;    
+    text-decoration:none;
+
+}
+header a:hover{
+    text-decoration: underline;
+}
+header ul{
+    position:absolute;
+    right:5vw;
+    top:0;
+    line-height:80px;
+}
+header li{
+    display: inline;
+    margin-right:4vw;
+}
+
+ul{
+    list-style:none;
+    display:flex;
+}
+h1 {
+    color:whilte;
+    position:absolute;
+    left:120px;
+    top:0;
+    line-height:80px;
+    background-image:url(picture/logo2.png) ;
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+
+    background-size: contain;
+    width:210px;
+    text-indent: -9999px;
+}
+h2 a{ 
+    text-decoration:none;
+
+}
+h2 a:hover{
+    text-decoration: underline;
+}
+.slogan1{
+    background-color: #485652;  
+    color: white;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    line-height: 1.8em;
+}
+footer{
+    background-color: #0000;  
+    color: #B7B7B7;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
