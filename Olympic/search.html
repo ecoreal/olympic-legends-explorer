@@ -1,78 +1,95 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>搜索与分类 - 奥运健儿风采展示</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- SEO 元标签 -->
-  <meta name="description" content="通过搜索栏找到特定运动员，或通过运动项目、国家/地区、年代等分类来浏览不同的健儿信息。">
-  <meta name="keywords" content="奥运, 搜索, 分类, 运动员, 体育, 体操, 田径, 美国, 牙买加, 2020, 2016">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Wstyle.css">
+    <title>Search</title>
+    <style>
+        body {
+            /* background-image: linear-gradient(to top, #9795f0 0%, #fbc8d4 100%); */
+            overflow: auto;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .search-box {
+            width: 60vw;
+            max-width: 600px;
+            margin: 20px;
+        }
+
+        .search-box input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 1.2em;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .search-box button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 4px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .search-box button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        function searchAthlete() {
+            const query = document.getElementById('search-input').value.toLowerCase();
+            if (query.includes('马龙')) {
+                window.location.href = 'athlete.html#malong';
+            } else if (query.includes('博尔特')) {
+                window.location.href = 'athlete.html#bolt';
+            } else if (query.includes('刘翔')) {
+                window.location.href = 'athlete.html#liuxiang';
+            } else {
+                alert('未找到相关运动员');
+            }
+        }
+    </script>
 </head>
 
 <body>
-  <div id="app">
     <header>
-      <h1>搜索与分类</h1>
-      <nav>
-        <ul>
-          <li><a href="index.html">首页</a></li>
-          <li><a href="search.html">搜索与分类</a></li>
-          <li><a href="athlete.html">运动员详情</a></li>
-          <li><a href="events.html">赛事记录</a></li>
-        </ul>
-      </nav>
-      <div class="search-filter">
-        <input type="text" v-model="searchQuery" placeholder="搜索运动员...">
-        <select v-model="selectedSport">
-          <option value="">所有项目</option>
-          <option v-for="sport in sports" :key="sport" :value="sport">{{ sport }}</option>
-        </select>
-        <select v-model="selectedCountry">
-          <option value="">所有国家</option>
-          <option v-for="country in countries" :key="country" :value="country">{{ country }}</option>
-        </select>
-        <select v-model="selectedYear">
-          <option value="">所有年代</option>
-          <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
-        </select>
-      </div>
+        <h1>Search Athletes</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="search.html">搜索</a></li>
+                <li><a href="html/event.html">赛事记录</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-      <div class="athlete-card" v-for="athlete in paginatedAthletes" :key="athlete.id" @mouseover="hoverCard" @mouseleave="leaveCard">
-        <img :src="athlete.image" :alt="athlete.name">
-        <h2>{{ athlete.name }}</h2>
-        <p><strong>国家：</strong> {{ athlete.country }}</p>
-        <p><strong>项目：</strong> {{ athlete.sport }}</p>
-        <p><strong>年代：</strong> {{ athlete.year }}</p>
-        <button @click="openModal(athlete)">查看详情</button>
-      </div>
+        <div class="container">
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="输入运动员姓名">
+                <button type="button" onclick="searchAthlete()">搜索</button>
+            </div>
+        </div>
     </main>
 
-    <div class="pagination">
-      <button @click="prevPage" :disabled="currentPage === 1">上一页</button>
-      <span>第 {{ currentPage }} 页，共 {{ totalPages }} 页</span>
-      <button @click="nextPage" :disabled="currentPage === totalPages">下一页</button>
-    </div>
-
-    <!-- 运动员详情模态窗口 -->
-    <div v-if="showModal" class="modal-overlay" @click.self="closeModal">
-      <div class="modal-content">
-        <span class="close-button" @click="closeModal">&times;</span>
-        <img :src="selectedAthlete.image" :alt="selectedAthlete.name">
-        <h2>{{ selectedAthlete.name }}</h2>
-        <p><strong>国家：</strong> {{ selectedAthlete.country }}</p>
-        <p><strong>项目：</strong> {{ selectedAthlete.sport }}</p>
-        <p><strong>年代：</strong> {{ selectedAthlete.year }}</p>
-        <p>{{ selectedAthlete.description }}</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- 引入 Vue.js -->
-  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
-  <!-- 引入应用脚本 -->
-  <script src="app.js"></script>
+    <footer>
+        <p>©2024 Search. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>

@@ -1,0 +1,5 @@
+
+.container .event img {
+    width: 300px;
+    height: auto; /* 保持纵横比 */
+}

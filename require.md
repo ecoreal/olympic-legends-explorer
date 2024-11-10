@@ -7,33 +7,4 @@
 所提交的网页不能够使用预设样式的库（如 Bootstrap, VUE elements 等），
 但是可以使用功能性的库，比如 echart.js等。
 
-Olympics/
-├── public/
-│   ├── index.html
-│   ├── styles.css
-├── server/
-│   ├── server.js
-├── README.md
-├── package.json
-└── node_modules/
 
-
-
-
-
-{
-  "name": "webpage_11_8",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
-  "dependencies": {
-    "express": "^4.21.1",
-    "mysql": "^2.18.1"
-  }
-}

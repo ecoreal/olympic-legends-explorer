@@ -1,36 +1,78 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>奥运健儿风采展示</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- SEO 元标签 -->
-  <meta name="description" content="浏览来自不同国家、运动项目和年代的奥运健儿信息。">
-  <meta name="keywords" content="奥运, 健儿, 运动员, 体育, 体操, 田径, 美国, 牙买加, 2020, 2016">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Wstyle.css">
+    <title>奥运健儿风采展示</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('picture/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2em;
+        }
+
+        h1 {
+            margin-top: 20vh;
+            font-size: 3em;
+        }
+    </style>
 </head>
 
 <body>
-  <header>
-    <h1>欢迎来到奥运健儿风采展示</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">首页</a></li>
-        <li><a href="search.html">搜索与分类</a></li>
-        <li><a href="athlete.html">运动员详情</a></li>
-        <li><a href="events.html">赛事记录</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">首页</a></li>
+                <li><a href="search.html">搜索</a></li>
+                <li><a href="athlete.html">运动员详情</a></li>
+                <li><a href="html/event.html">赛事记录</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <section class="welcome">
-      <h2>欢迎来到奥运健儿风采展示</h2>
-      <p>在这里，您可以浏览来自不同国家、运动项目和年代的奥运健儿信息。</p>
-      <p>通过搜索与分类页面，您可以找到特定运动员，或通过运动项目、国家/地区、年代等分类来浏览不同的健儿信息。</p>
-      <p>在运动员详情页，您可以查看运动员的详细资料，包括个人生平、奥运成绩、奖牌、赛事数据等。</p>
-      <p>在赛事记录页面，您可以查看奥运会的历史记录、各届奥运会的奖牌榜、以及运动员在历届奥运中的表现。</p>
-    </section>
-  </main>
+    <main>
+        <h1>欢迎来到 Olympic</h1>
+    </main>
 </body>
+
 </html>
