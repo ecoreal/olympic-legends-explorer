@@ -1,10 +1,10 @@
-# Olympic Athletes Showcase
+# Olympic Legends Explorer
 
 [English](README.en.md)
 
-Olympic Athletes Showcase 是一个以奥林匹克运动会为主题的静态信息展示网站。项目使用 HTML、CSS 和少量原生 JavaScript 构建，面向浏览器直接访问，不依赖后端服务或构建工具。
+Olympic Legends Explorer（奥运传奇探索）是一个以奥林匹克运动会为主题的静态信息展示网站。项目使用 HTML、CSS 和少量原生 JavaScript 构建，面向浏览器直接访问，不依赖后端服务或构建工具。
 
-网站聚焦三个展示场景：奥运主题首页、运动员检索与详情展示、经典奥运赛事回顾。仓库同时保留了奥运数据 CSV 归档，便于后续扩展检索、数据可视化或动态页面功能。
+网站聚焦三个展示场景：奥运主题首页、运动员检索与人物故事、经典奥运赛事回顾。仓库同时保留了奥运数据 CSV 归档，便于后续扩展检索、数据可视化或动态页面功能。
 
 ## 在线入口
 
@@ -18,7 +18,7 @@ Olympic/index.html
 
 ## 功能概览
 
-- 首页：以奥运背景图和导航栏作为项目入口。
+- 首页：以奥运主视觉、关键数字、内容入口和精选人物构成项目入口。
 - 搜索页：支持按运动员姓名跳转到对应详情区块。
 - 运动员详情页：展示马龙、尤塞恩·博尔特、刘翔的代表性成绩、图片和奥林匹克官网链接。
 - 赛事记录页：回顾 1984 洛杉矶、1992 巴塞罗那、2000 悉尼、2008 北京、2012 伦敦等经典奥运会，并展示奖牌榜、吉祥物和赛事亮点。
@@ -29,7 +29,7 @@ Olympic/index.html
 | 路径 | 说明 |
 | --- | --- |
 | `index.html` | GitHub Pages 和本地访问的根入口，会跳转到主站页面。 |
-| `Olympic/index.html` | 网站首页。 |
+| `Olympic/index.html` | 网站首页与项目主入口。 |
 | `Olympic/search.html` | 运动员搜索页面。 |
 | `Olympic/athlete.html` | 运动员详情页面。 |
 | `Olympic/html/event.html` | 经典奥运赛事记录页面。 |

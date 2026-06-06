@@ -1,10 +1,10 @@
-# Olympic Athletes Showcase
+# Olympic Legends Explorer
 
 [简体中文](README.md)
 
-Olympic Athletes Showcase is a static information website about the Olympic Games. It is built with HTML, CSS, and a small amount of vanilla JavaScript, and can be opened directly in a browser without a backend service or build step.
+Olympic Legends Explorer is a static information website about the Olympic Games. It is built with HTML, CSS, and a small amount of vanilla JavaScript, and can be opened directly in a browser without a backend service or build step.
 
-The site focuses on three main sections: an Olympic-themed landing page, athlete search and profile pages, and classic Olympic Games event reviews. The repository also keeps CSV data archives for future search, visualization, or dynamic-page extensions.
+The site focuses on three main sections: an Olympic-themed home page, athlete search and profile stories, and classic Olympic Games event reviews. The repository also keeps CSV data archives for future search, visualization, or dynamic-page extensions.
 
 ## Entry Point
 
@@ -18,7 +18,7 @@ For GitHub Pages, the repository can be published from the root directory. For l
 
 ## Features
 
-- Home page with Olympic background imagery and navigation.
+- Home page with Olympic hero imagery, key metrics, content entry points, and featured athletes.
 - Search page with athlete-name based jumps to profile sections.
 - Athlete profile page for Ma Long, Usain Bolt, and Liu Xiang, including representative achievements, images, and official Olympic profile links.
 - Event review page covering classic Olympic Games including Los Angeles 1984, Barcelona 1992, Sydney 2000, Beijing 2008, and London 2012.
@@ -29,7 +29,7 @@ For GitHub Pages, the repository can be published from the root directory. For l
 | Path | Description |
 | --- | --- |
 | `index.html` | Root entry for GitHub Pages and local access. |
-| `Olympic/index.html` | Main landing page. |
+| `Olympic/index.html` | Main home page and project entry. |
 | `Olympic/search.html` | Athlete search page. |
 | `Olympic/athlete.html` | Athlete profile page. |
 | `Olympic/html/event.html` | Classic Olympic event review page. |

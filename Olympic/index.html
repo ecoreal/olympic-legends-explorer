@@ -4,75 +4,603 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Wstyle.css">
-    <title>Olympic Athletes Showcase</title>
+    <title>Olympic Legends Explorer</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-image: url('picture/background.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-align: center;
+        :root {
+            --ink: #111827;
+            --muted: #5f6775;
+            --paper: #f6f8fb;
+            --white: #ffffff;
+            --line: rgba(17, 24, 39, 0.12);
+            --blue: #0078d7;
+            --yellow: #f2b705;
+            --green: #108a45;
+            --red: #d8342a;
+            --black: #161616;
         }
 
-        header {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 10px;
-            width: 100%;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-width: 320px;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .site-header {
             position: fixed;
             top: 0;
             left: 0;
+            z-index: 20;
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+            background: rgba(13, 18, 28, 0.78);
+            backdrop-filter: blur(18px);
         }
 
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .nav-wrap {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: min(1180px, calc(100% - 48px));
+            min-height: 72px;
+            margin: 0 auto;
+            gap: 28px;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--white);
+            font-size: 18px;
+            font-weight: 800;
+            line-height: 1.1;
+        }
+
+        .brand-mark {
+            display: grid;
+            grid-template-columns: repeat(5, 8px);
+            align-items: end;
+            gap: 4px;
+            height: 22px;
+        }
+
+        .brand-mark span {
+            display: block;
+            width: 8px;
+            border-radius: 4px;
+        }
+
+        .brand-mark span:nth-child(1) {
+            height: 18px;
+            background: var(--blue);
+        }
+
+        .brand-mark span:nth-child(2) {
+            height: 12px;
+            background: var(--yellow);
+        }
+
+        .brand-mark span:nth-child(3) {
+            height: 21px;
+            background: var(--black);
+        }
+
+        .brand-mark span:nth-child(4) {
+            height: 14px;
+            background: var(--green);
+        }
+
+        .brand-mark span:nth-child(5) {
+            height: 18px;
+            background: var(--red);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            display: inline-flex;
+            align-items: center;
+            min-height: 40px;
+            padding: 0 14px;
+            border-radius: 6px;
+            color: rgba(255, 255, 255, 0.84);
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus-visible {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--white);
+            outline: none;
+        }
+
+        .hero {
+            display: flex;
+            align-items: flex-end;
+            min-height: 82vh;
+            padding: 128px 0 56px;
+            color: var(--white);
+            background:
+                linear-gradient(90deg, rgba(4, 7, 12, 0.88), rgba(4, 7, 12, 0.48) 54%, rgba(4, 7, 12, 0.22)),
+                url("picture/background.jpg") center / cover no-repeat;
+        }
+
+        .hero-inner {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+            color: rgba(255, 255, 255, 0.78);
+            font-size: 14px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .eyebrow::before {
+            content: "";
+            display: block;
+            width: 36px;
+            height: 3px;
+            border-radius: 3px;
+            background: var(--yellow);
+        }
+
+        .hero h1 {
+            max-width: 780px;
+            font-size: 72px;
+            line-height: 1.02;
+            font-weight: 900;
+        }
+
+        .hero-copy {
+            max-width: 620px;
+            margin-top: 22px;
+            color: rgba(255, 255, 255, 0.82);
+            font-size: 20px;
+            line-height: 1.7;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 34px;
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
             justify-content: center;
+            min-height: 46px;
+            padding: 0 20px;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 800;
         }
 
-        nav ul li {
-            margin: 0 15px;
+        .button.primary {
+            background: var(--white);
+            color: var(--ink);
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color: white;
-            font-size: 1.2em;
+        .button.secondary {
+            border: 1px solid rgba(255, 255, 255, 0.44);
+            color: var(--white);
         }
 
-        h1 {
-            margin-top: 20vh;
-            font-size: 3em;
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-1px);
+            outline: none;
+        }
+
+        .metric-row {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 1px;
+            width: min(1180px, calc(100% - 48px));
+            margin: -34px auto 0;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--line);
+            box-shadow: 0 18px 50px rgba(17, 24, 39, 0.12);
+        }
+
+        .metric {
+            min-height: 112px;
+            padding: 24px;
+            background: var(--white);
+        }
+
+        .metric strong {
+            display: block;
+            color: var(--ink);
+            font-size: 32px;
+            line-height: 1;
+        }
+
+        .metric span {
+            display: block;
+            margin-top: 10px;
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .section {
+            width: min(1180px, calc(100% - 48px));
+            margin: 0 auto;
+            padding: 78px 0;
+        }
+
+        .section-head {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+            gap: 32px;
+            margin-bottom: 28px;
+        }
+
+        .section h2 {
+            font-size: 34px;
+            line-height: 1.18;
+        }
+
+        .section-head p {
+            max-width: 520px;
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.75;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .feature-card {
+            position: relative;
+            min-height: 240px;
+            padding: 26px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .feature-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--blue);
+        }
+
+        .feature-card:nth-child(2)::before {
+            background: var(--green);
+        }
+
+        .feature-card:nth-child(3)::before {
+            background: var(--red);
+        }
+
+        .feature-card h3 {
+            margin-bottom: 14px;
+            font-size: 22px;
+        }
+
+        .feature-card p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        .feature-link {
+            display: inline-flex;
+            margin-top: 24px;
+            color: var(--ink);
+            font-size: 15px;
+            font-weight: 800;
+        }
+
+        .feature-link:hover,
+        .feature-link:focus-visible {
+            color: var(--blue);
+            outline: none;
+        }
+
+        .showcase-band {
+            background: var(--white);
+        }
+
+        .athlete-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .athlete-card {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .athlete-card img {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 10;
+            object-fit: cover;
+        }
+
+        .athlete-card div {
+            min-height: 150px;
+            padding: 22px;
+        }
+
+        .athlete-card h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .athlete-card p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.75;
+        }
+
+        .site-footer {
+            padding: 30px 24px;
+            border-top: 1px solid var(--line);
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.7);
+            text-align: center;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .nav-wrap {
+                align-items: flex-start;
+                flex-direction: column;
+                width: min(100% - 32px, 1180px);
+                padding: 18px 0;
+                gap: 14px;
+            }
+
+            .nav-links {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .nav-links a {
+                min-height: 36px;
+                padding: 0 10px;
+                font-size: 14px;
+            }
+
+            .hero {
+                min-height: 78vh;
+                padding-top: 154px;
+            }
+
+            .hero-inner,
+            .metric-row,
+            .section {
+                width: min(100% - 32px, 1180px);
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero-copy {
+                font-size: 18px;
+            }
+
+            .metric-row,
+            .feature-grid,
+            .athlete-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .section-head {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 620px) {
+            .brand {
+                font-size: 16px;
+            }
+
+            .hero {
+                min-height: 74vh;
+                padding-bottom: 44px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-copy {
+                font-size: 16px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .button {
+                width: 100%;
+            }
+
+            .metric-row,
+            .feature-grid,
+            .athlete-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 54px 0;
+            }
+
+            .section h2 {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">首页</a></li>
-                <li><a href="search.html">搜索</a></li>
-                <li><a href="athlete.html">运动员详情</a></li>
-                <li><a href="html/event.html">赛事记录</a></li>
-            </ul>
-        </nav>
+    <header class="site-header">
+        <div class="nav-wrap">
+            <a class="brand" href="index.html" aria-label="Olympic Legends Explorer home">
+                <span class="brand-mark" aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <span>Olympic Legends Explorer</span>
+            </a>
+            <nav aria-label="Primary navigation">
+                <ul class="nav-links">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="search.html">运动员搜索</a></li>
+                    <li><a href="athlete.html">传奇人物</a></li>
+                    <li><a href="html/event.html">经典赛事</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
-        <h1>奥运健儿风采展示</h1>
+        <section class="hero">
+            <div class="hero-inner">
+                <p class="eyebrow">Olympic Legends Archive</p>
+                <h1>奥运传奇探索</h1>
+                <p class="hero-copy">
+                    聚合奥运人物、经典赛事与奖牌数据，以静态网页呈现奥林匹克历史中的代表性瞬间。
+                </p>
+                <div class="hero-actions" aria-label="Homepage actions">
+                    <a class="button primary" href="athlete.html">浏览传奇人物</a>
+                    <a class="button secondary" href="html/event.html">查看经典赛事</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="metric-row" aria-label="Project highlights">
+            <div class="metric">
+                <strong>3</strong>
+                <span>代表性运动员人物页</span>
+            </div>
+            <div class="metric">
+                <strong>5</strong>
+                <span>经典夏季奥运会回顾</span>
+            </div>
+            <div class="metric">
+                <strong>13+</strong>
+                <span>奥运 CSV 数据归档</span>
+            </div>
+            <div class="metric">
+                <strong>0</strong>
+                <span>后端依赖与构建步骤</span>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="section-head">
+                <h2>项目内容</h2>
+                <p>页面围绕人物、检索和赛事回顾组织，帮助访问者从不同入口进入奥运故事与数据。</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <h3>运动员检索</h3>
+                    <p>输入姓名后快速跳转到对应运动员区块，当前覆盖马龙、尤塞恩·博尔特、刘翔三位代表性人物。</p>
+                    <a class="feature-link" href="search.html">进入搜索页</a>
+                </article>
+                <article class="feature-card">
+                    <h3>人物故事</h3>
+                    <p>通过大图、成绩摘要和外部资料链接，呈现奥运冠军的高光成绩与公众形象。</p>
+                    <a class="feature-link" href="athlete.html">浏览人物页</a>
+                </article>
+                <article class="feature-card">
+                    <h3>赛事回顾</h3>
+                    <p>串联洛杉矶、巴塞罗那、悉尼、北京、伦敦等奥运会，展示奖牌榜、吉祥物与历史片段。</p>
+                    <a class="feature-link" href="html/event.html">查看赛事页</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="showcase-band">
+            <div class="section">
+                <div class="section-head">
+                    <h2>精选人物</h2>
+                    <p>三位代表性运动员构成网站的核心叙事入口，连接成就、图像与外部资料。</p>
+                </div>
+                <div class="athlete-grid">
+                    <article class="athlete-card">
+                        <img src="picture/m1.jpg" alt="马龙">
+                        <div>
+                            <h3>马龙</h3>
+                            <p>中国乒乓球代表性人物，多届奥运冠军，项目页面记录其奥运成绩和代表性标签。</p>
+                        </div>
+                    </article>
+                    <article class="athlete-card">
+                        <img src="picture/b1.jpg" alt="尤塞恩·博尔特">
+                        <div>
+                            <h3>尤塞恩·博尔特</h3>
+                            <p>男子短跑传奇，页面收录其 100 米、200 米和接力项目的奥运高光表现。</p>
+                        </div>
+                    </article>
+                    <article class="athlete-card">
+                        <img src="picture/l1.jpg" alt="刘翔">
+                        <div>
+                            <h3>刘翔</h3>
+                            <p>中国田径代表人物，雅典奥运会男子 110 米栏冠军，页面呈现其突破意义。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer class="site-footer">
+        <p>©2026 Olympic Legends Explorer. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
