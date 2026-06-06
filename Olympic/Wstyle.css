@@ -101,7 +101,7 @@ ul{
     display:flex;
 }
 h1 {
-    color:whilte;
+    color:white;
     position:absolute;
     left:120px;
     top:0;
@@ -113,6 +113,44 @@ h1 {
     background-size: contain;
     width:210px;
     text-indent: -9999px;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        min-height: 80px;
+        right: 0;
+    }
+
+    header ul {
+        position: static;
+        justify-content: center;
+        flex-wrap: wrap;
+        line-height: 2.4em;
+        padding-top: 80px;
+    }
+
+    header li {
+        margin: 0 12px;
+    }
+
+    .ath,
+    .achievement {
+        flex-direction: column;
+        height: auto;
+        padding: 48px 24px;
+        gap: 24px;
+    }
+
+    .ath img,
+    .info,
+    .achievement div {
+        width: 100%;
+    }
+
+    .ath img {
+        height: auto;
+    }
 }
 h2 a{ 
     text-decoration:none;
@@ -140,4 +178,3 @@ footer{
     justify-content: center;
     font-size: 14px;
 }
-
