@@ -1,3 +1,14 @@
+<!-- ecoreal-repo-header: olympic-legends-explorer -->
+<div align="center">
+
+<img src="assets/repo-icon.png" width="160" alt="Olympic Legends Explorer icon">
+
+# Olympic Legends Explorer
+
+Interactive web project exploring Olympic legends and history.
+
+</div>
+
 # Olympic Legends Explorer
 
 [English](README.en.md)
